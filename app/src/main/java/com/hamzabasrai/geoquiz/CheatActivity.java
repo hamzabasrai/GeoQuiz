@@ -18,6 +18,7 @@ public class CheatActivity extends AppCompatActivity {
     private static final String EXTRA_ANSWER_SHOWN = "com.hamzabasrai.geoquiz.answer_shown";
     private boolean mAnswerIsTrue;
     private TextView mAnswerTextView;
+    private TextView mApiTextView;
     private Button mShowAnswer;
 
     public static Intent newIntent(Context packageContext, boolean answerIsTrue) {
@@ -37,6 +38,8 @@ public class CheatActivity extends AppCompatActivity {
 
         mAnswerIsTrue = getIntent().getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false);
         mAnswerTextView = (TextView) findViewById(R.id.answerTextView);
+        mApiTextView = (TextView) findViewById(R.id.apiTextView);
+        mApiTextView.setText("API Level " + Build.VERSION.SDK_INT);
 
         mShowAnswer = (Button) findViewById(R.id.showAnswerButton);
         mShowAnswer.setOnClickListener(new View.OnClickListener() {
