@@ -42,13 +42,14 @@ public class QuizActivity extends AppCompatActivity {
         boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
         int messageResId = 0;
 
-        if (mIsCheater)
+        if (mIsCheater) {
             messageResId = R.string.judgement_toast;
-        else {
-            if (userPressedTrue == answerIsTrue)
+        } else {
+            if (userPressedTrue == answerIsTrue) {
                 messageResId = R.string.correct_toast;
-            else
+            } else {
                 messageResId = R.string.incorrect_toast;
+            }
         }
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
     }
@@ -105,11 +106,13 @@ public class QuizActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode != Activity.RESULT_OK)
+        if (resultCode != Activity.RESULT_OK) {
             return;
+        }
         if (requestCode == REQUEST_CODE_CHEAT) {
-            if (data == null)
+            if (data == null) {
                 return;
+            }
             mIsCheater = CheatActivity.wasAnswerShown(data);
         }
     }
